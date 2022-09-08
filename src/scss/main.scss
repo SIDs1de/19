@@ -1,0 +1,352 @@
+// Главный файл, где пишутся и куда подключаются все стили проекта
+
+// Импорт дополнительных файлов стилей и настроек
+@import "variables";
+@import "../../node_modules/normalize.css/normalize";
+@import "start";
+@import "mixins/font-face";
+@import "mixins/adaptive-value";
+@import "fonts";
+@import "global";
+
+// Адаптивное свойство - используется, если дизайнером предоставлен неполный макет,
+// чтобы при уменьшении или увеличении экрана паддинги, размеры шрифта автоматически
+// увеличивались / уменьшались в границах от десктопного значения до телефонного
+// Подробнее: https://www.youtube.com/watch?v=eaOAY0vIB4U
+$maxWidth: 1920; // Для масштабирования, например, текста, если экран будет увеличиваться и станет больше контейнера
+$maxWidthContainer: 1200; // Для масштабирования, например, текста, если экран будет уменьшаться и станет меньше контейнера
+
+// Основные свойства
+
+html,
+body {
+}
+
+html {
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  color: #000000;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 400px;
+}
+
+// Основная часть
+
+.wrapper {
+}
+
+.header {
+  background: url("../images/header/main-bg.jpg") center/cover no-repeat;
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 23px;
+  }
+  &__bottom {
+  }
+}
+.container {
+}
+.top {
+  &__title {
+    max-width: 180px;
+    font-size: 14px;
+    line-height: 150%;
+    color: rgba(255, 255, 255, 0.8);
+  }
+  &__insta-block {
+    background: #363636;
+    border-radius: 10px;
+    padding: 10px 10px 10px 143px;
+    position: relative;
+  }
+}
+.insta {
+  &:hover {
+    .insta__count {
+      letter-spacing: 2px;
+    }
+  }
+  &__count {
+    font-family: "Manrope", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+    color: #ffffff;
+    transition: letter-spacing 0.2s;
+  }
+  &__title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    border-radius: 10px;
+    padding-left: 42px;
+    padding-right: 17px;
+    display: flex;
+    align-items: center;
+    font-family: "Manrope", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+    color: #ffffff;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 10px;
+      width: 24px;
+      height: 24px;
+      background: url("../images/header/insta.svg") center/contain no-repeat;
+    }
+  }
+}
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &__left {
+  }
+  &__main-title {
+    font-family: "Oranienbaum";
+    font-size: 72px;
+    line-height: calc(83 / 72);
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    background: linear-gradient(96.63deg, #ffffff 0%, #dfdfdf 31.52%, #a5a5a5 83.09%, #ffffff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    margin-bottom: 24px;
+    font-weight: 400;
+  }
+  &__main-title-addition {
+    padding-left: 40px;
+  }
+  &__main-text {
+    line-height: 150%;
+    color: #ffffff;
+    margin-bottom: 40px;
+  }
+  &__btn {
+    background: linear-gradient(95.9deg, #ff7697 0%, #ff94ae 27.88%, #ff6a8e 81.52%, #ff7697 100%);
+    box-shadow: inset 0px 0px 20px rgba(255, 255, 255, 0.25);
+    border-radius: 45px;
+    padding: 34px 52px 37px 51px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: calc(19 / 16);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.8);
+    transition: letter-spacing 0.2s;
+    &:hover {
+      letter-spacing: 3px;
+    }
+  }
+  &__right {
+    position: relative;
+  }
+  &__main-img {
+    display: block;
+  }
+  &__addition-img {
+    position: absolute;
+    bottom: -60px;
+    left: -120px;
+    width: 677.9px;
+    height: 499px;
+    max-width: initial;
+  }
+}
+
+.steps {
+  &__title {
+    margin-bottom: 56px;
+  }
+  &__block {
+    padding: 47px 50px 47px 106px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: relative;
+  }
+  &__text {
+    max-width: 524px;
+    margin: 0 auto;
+    font-family: "Lato";
+    font-style: italic;
+    font-size: 18px;
+    line-height: 150%;
+  }
+  &__par {
+  }
+  &__par + &__par {
+    margin-top: 15px;
+  }
+  &__image-block {
+    position: absolute;
+    left: 180px;
+    top: 50%;
+    transform: translateY(-50%);
+    &::before {
+      content: "";
+      position: absolute;
+      top: -9px;
+      left: -9px;
+      width: 132px;
+      height: 132px;
+      background-image: url("../images/steps/circle-line.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
+  &__img {
+  }
+}
+
+.who {
+  &__title {
+    margin-bottom: 70px;
+  }
+  &__list {
+  }
+}
+.swiper-who {
+  &__wrapper {
+  }
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  &__img-wrapper {
+    width: 174px;
+    height: 174px;
+    margin-bottom: 13px;
+  }
+  &__img {
+    object-fit: contain;
+    max-width: 100%;
+    max-height: 100%;
+  }
+  &__title {
+    font-weight: 800;
+    font-size: 17px;
+    line-height: 1.5;
+    margin-bottom: 12px;
+    max-width: 280px;
+  }
+  &__text {
+    line-height: 1.5;
+  }
+  &__pagination {
+  }
+}
+
+.advantages {
+  &__title {
+    margin-bottom: 48px;
+  }
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 0 -10px;
+  }
+  &__item {
+    flex: 0 0 380px;
+    padding: 0 10px;
+    box-shadow: 0px 10px 100px rgba(0, 0, 0, 0.03);
+    border-radius: 30px;
+    padding: 30px 100px 30px 30px;
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 175px;
+      height: 175px;
+    }
+    &:nth-child(1) {
+      background: #ffeaeb;
+      span {
+        color: #fe1f3d;
+      }
+      .advantages__item-text {
+        color: #6b1c29;
+      }
+      &::before {
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+    }
+    &:nth-child(2) {
+      background: #eaf4ff;
+      span {
+        color: #2db9ee;
+      }
+      .advantages__item-text {
+        color: #143f5a;
+      }
+      &::before {
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+    }
+    &:nth-child(3) {
+      background: #fff7ea;
+      .advantages__item-text {
+        color: #4f3c17;
+      }
+      &::before {
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+    }
+  }
+  &__item-text {
+    line-height: 150%;
+  }
+  &__item-list {
+    color: #4f3c17;
+    list-style-type: disc;
+    padding-left: 25px;
+    line-height: 150%;
+  }
+  &__item-item {
+  }
+  &__item-item-text {
+  }
+}
+
+// font-family: 'Lato', sans-serif;
+// font-family: 'Manrope', sans-serif;
+// font-family: 'Oranienbaum', serif;
+
+@import "media";

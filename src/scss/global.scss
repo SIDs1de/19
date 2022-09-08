@@ -1,0 +1,74 @@
+// Здесь находятся все глобальные стили проекта, например блоки по БЭМу
+
+.webp {
+  .insta__title {
+    background-image: url("../images/header/insta-bg.jpg");
+  }
+  .steps__block {
+    background-image: url("../images/steps/line.webp");
+  }
+  .advantages__item:nth-child(1)::before {
+    background-image: url("../images/advantages/1.webp");
+  }
+  .advantages__item:nth-child(2)::before {
+    background-image: url("../images/advantages/2.webp");
+    width: 150px;
+    height: 150px;
+  }
+  .advantages__item:nth-child(3)::before {
+    background-image: url("../images/advantages/3.webp");
+  }
+}
+
+.no-webp {
+  .insta__title {
+    background-image: url("../images/header/insta-bg.webp");
+  }
+  .steps__block {
+    background-image: url("../images/steps/line.png");
+  }
+  .advantages__item:nth-child(1)::before {
+    background-image: url("../images/advantages/1.png");
+  }
+  .advantages__item:nth-child(2)::before {
+    background-image: url("../images/advantages/2.png");
+  }
+  .advantages__item:nth-child(3)::before {
+    background-image: url("../images/advantages/3.png");
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.wrapper {
+  &__header {
+    padding-top: 48px;
+  }
+  &__steps {
+    margin-bottom: 120px;
+    padding-top: 145px;
+  }
+  &__who {
+    margin-bottom: 150px;
+  }
+  &__advantages {
+    margin-bottom: 150px;
+  }
+}
+
+.title {
+  font-family: "Oranienbaum";
+  margin: 0 auto;
+  font-size: 64px;
+  line-height: calc(74 / 64);
+  text-align: center;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #1b1a1a;
+  max-width: 855px;
+  font-weight: 400;
+}
