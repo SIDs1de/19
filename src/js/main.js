@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Количество слайдов для показа
     slidesPerView: 3,
 
+    enabled: false,
+
     // Включаем параллакс
     // parallax: true,
 
