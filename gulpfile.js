@@ -34,14 +34,6 @@ function images() {
   return src('src/images/**/*')
     .pipe(webp())
     .pipe(newer('src/images'))
-    .pipe(
-      imagemin({
-        progressive: true,
-        svgoPlugins: [{ removeViewBox: false }],
-        interlaced: true,
-        optimizationLevel: 3,
-      })
-    )
     .pipe(dest('src/images'))
     .pipe(browserSync.stream());
 }

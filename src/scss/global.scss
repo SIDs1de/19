@@ -58,6 +58,12 @@
   &__advantages {
     margin-bottom: 150px;
   }
+  &__comfortable {
+    margin-bottom: 150px;
+  }
+  &__learn {
+    margin-bottom: 150px;
+  }
 }
 
 .title {
@@ -71,4 +77,21 @@
   color: #1b1a1a;
   max-width: 855px;
   font-weight: 400;
+  position: relative;
+  &::before {
+    content: "";
+    width: 0;
+    height: 4px;
+    background-color: rgba(#000, 0.5);
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: width 0.7s;
+  }
+  &:hover {
+    &::before {
+      width: 100%;
+    }
+  }
 }

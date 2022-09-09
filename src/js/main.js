@@ -1,5 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
-  new Swiper('.swiper-who', {
+  const html = document.querySelector('html');
+  const body = document.querySelector('body');
+
+  const mySlider = new Swiper('.swiper-who', {
     // Свои классы
     wrapperClass: 'swiper-who__wrapper',
     slideClass: 'swiper-who__item',
@@ -12,6 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
     slidesPerView: 3,
 
     enabled: false,
+
+    grabCursor: true,
 
     // Включаем параллакс
     // parallax: true,
@@ -86,4 +91,24 @@ document.addEventListener('DOMContentLoaded', () => {
     //   resize: function () {},
     // },
   });
+
+  const headerClasses = () => {
+    const header = document.querySelector('.header');
+    if (html.scrollTop > 790 && !header.classList.contains('slick')) {
+      header.classList.add('slick');
+    } else if (header.classList.contains('slick') && html.scrollTop <= 790) {
+      header.classList.remove('slick');
+    } else if (html.scrollTop > 400 && !header.classList.contains('slick2')) {
+      header.classList.add('slick2');
+    } else if (html.scrollTop <= 400 && header.classList.contains('slick2')) {
+      header.classList.remove('slick2');
+    }
+  };
+
+  const headerSlick = () => {
+    window.addEventListener('scroll', headerClasses);
+  };
+
+  headerClasses();
+  headerSlick();
 });
