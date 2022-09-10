@@ -1,5 +1,12 @@
 // Главный файл, где пишутся и куда подключаются все стили проекта
 
+// Адаптивное свойство - используется, если дизайнером предоставлен неполный макет,
+// чтобы при уменьшении или увеличении экрана паддинги, размеры шрифта автоматически
+// увеличивались / уменьшались в границах от десктопного значения до телефонного
+// Подробнее: https://www.youtube.com/watch?v=eaOAY0vIB4U
+$maxWidth: 1920; // Для масштабирования, например, текста, если экран будет увеличиваться и станет больше контейнера
+$maxWidthContainer: 1200; // Для масштабирования, например, текста, если экран будет уменьшаться и станет меньше контейнера
+
 // Импорт дополнительных файлов стилей и настроек
 @import "variables";
 @import "../../node_modules/normalize.css/normalize";
@@ -8,13 +15,6 @@
 @import "mixins/adaptive-value";
 @import "fonts";
 @import "global";
-
-// Адаптивное свойство - используется, если дизайнером предоставлен неполный макет,
-// чтобы при уменьшении или увеличении экрана паддинги, размеры шрифта автоматически
-// увеличивались / уменьшались в границах от десктопного значения до телефонного
-// Подробнее: https://www.youtube.com/watch?v=eaOAY0vIB4U
-$maxWidth: 1920; // Для масштабирования, например, текста, если экран будет увеличиваться и станет больше контейнера
-$maxWidthContainer: 1200; // Для масштабирования, например, текста, если экран будет уменьшаться и станет меньше контейнера
 
 // Основные свойства
 
@@ -53,6 +53,7 @@ h6 {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  @include adaptive-value("padding-top", 48, 22, 1);
   &__top {
     display: flex;
     justify-content: space-between;
@@ -90,7 +91,7 @@ h6 {
 .top {
   &__title {
     max-width: 180px;
-    font-size: 14px;
+    @include adaptive-value("font-size", 14, 12, 1);
     line-height: 150%;
     color: rgba(255, 255, 255, 0.8);
     position: relative;
@@ -170,7 +171,7 @@ h6 {
   }
   &__main-title {
     font-family: "Oranienbaum";
-    font-size: 72px;
+    @include adaptive-value("font-size", 72, 42, 1);
     line-height: calc(83 / 72);
     letter-spacing: 0.02em;
     text-transform: uppercase;
@@ -179,7 +180,7 @@ h6 {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     text-fill-color: transparent;
-    margin-bottom: 24px;
+    @include adaptive-value("margin-bottom", 24, 16, 1);
     font-weight: 400;
     transition: transform 0.5s;
     &:hover {
@@ -193,6 +194,7 @@ h6 {
     line-height: 150%;
     color: #ffffff;
     margin-bottom: 40px;
+    @include adaptive-value("font-size", 18, 16, 1);
     transition: transform 0.5s;
     &:hover {
       transform: scale(1.05);
@@ -204,8 +206,8 @@ h6 {
     border-radius: 45px;
     padding: 34px 52px 37px 51px;
     font-weight: 700;
-    font-size: 16px;
-    line-height: calc(19 / 16);
+    @include adaptive-value("font-size", 16, 14, 1);
+    @include adaptive-value("line-height", 19, 17, 1);
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: rgba(255, 255, 255, 0.8);
@@ -499,18 +501,23 @@ h6 {
       .learn__item-img {
         transform: scale(1.1);
       }
+      .learn__item-text {
+        background-color: rgba(#000, 0.1);
+      }
     }
   }
   &__item-img-container {
     margin-bottom: 17px;
   }
   &__item-img {
-    transition: transform .4s;
+    transition: transform 0.4s;
   }
   &__item-text {
     font-size: 16px;
     line-height: 150%;
     color: #050505;
+    padding-bottom: 5px;
+    transition: background-color 0.3s;
   }
   &__item-link {
     color: #ff7697;
@@ -535,16 +542,253 @@ h6 {
   }
 }
 
+.questions {
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    width: 230px;
+    height: 330px;
+    background-image: url('../images/questions/lupa.png');
+    right: 0;
+    bottom: 30px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  &__title {
+    margin-bottom: 48px;
+  }
+  &__inner {
+    max-width: 980px;
+    margin: 0 auto;
+  }
+  &__list {
+    display: flex;
+    flex-direction: column;
+  }
+  &__item {
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 150%;
+    color: #513939;
+    background: #ffffff;
+    box-shadow: 0px 10px 100px rgba(0, 0, 0, 0.03);
+    border-radius: 30px;
+    width: 100%;
+    &.active {
+      .questions__body {
+        padding: 0 50px 40px 40px;
+      }
+      .questions__head {
+        &::after {
+          transform: translateY(-50%) rotate(135deg);
+        }
+        &::before {
+          width: calc(100% - 80px);
+        }
+      }
+    }
+  }
+  &__item + &__item {
+    margin-top: 20px;
+  }
+  &__head {
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    padding: 40px;
+    transition: letter-spacing 0.4s;
+    &:hover {
+      letter-spacing: 0.8px;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 1px;
+      background-color: rgba(#513939, 0.5);
+      transition: width 0.5s;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      right: 40px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 18px;
+      height: 18px;
+      background: url("../images/questions/plus.svg") center/contain no-repeat;
+      transition: transform 0.5s;
+    }
+  }
+  &__body {
+    max-height: 0;
+    overflow-y: hidden;
+    padding: 0;
+    font-size: 17px;
+    line-height: 150%;
+    color: #513939;
+    transition: max-height 0.5s, padding 0.5s;
+    padding: 0 50px 0 40px;
+  }
+}
+
+.special {
+  padding-top: 110px;
+  padding-bottom: 40px;
+  background-image: url("../images/comfortable/bg.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: background-position 0.6s;
+  &:hover {
+    background-position: 0;
+  }
+  &__top {
+    margin-bottom: 240px;
+  }
+  &__title {
+    margin-bottom: 16px;
+  }
+  &__text {
+    text-align: center;
+    font-size: 18px;
+    line-height: 150%;
+    color: #ffffff;
+    margin-bottom: 40px;
+    span {
+      color: #ff7697;
+    }
+  }
+  &__btns {
+    display: flex;
+    margin: 0 -10px;
+    justify-content: center;
+  }
+  &__btn {
+    margin: 0 10px;
+    padding: 34px 47px 37px 45px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.8);
+    background: #ff7697;
+    box-shadow: inset 0px 0px 20px rgba(255, 255, 255, 0.25);
+    border-radius: 45px;
+    border: 1px solid #ff7697;
+    transition: all 0.3s;
+    &:hover {
+      background: transparent;
+      border: 1px solid #fff;
+      box-shadow: none;
+    }
+  }
+  &__btn--transparent {
+    background: transparent;
+    border: 1px solid #fff;
+    box-shadow: none;
+    &:hover {
+      background: #ff7697;
+      box-shadow: inset 0px 0px 20px rgba(255, 255, 255, 0.25);
+      border: 1px solid #ff7697;
+    }
+  }
+  &__footer-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+    background-color: #fff;
+    border-radius: 30px;
+  }
+  &__footer {
+    position: relative;
+    z-index: 1;
+    box-shadow: 0px 10px 100px rgba(81, 57, 57, 0.05);
+    max-width: 980px;
+    margin: 0 auto;
+  }
+  &__footer-img {
+    position: absolute;
+    top: -220px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+    transition: transform .5s;
+    &:hover {
+      transform: translateX(-50%) scale(1.1);
+    }
+  }
+  &__link-img {
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: -3px;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 1px;
+      width: 0;
+      background-color: rgba(#000, 0.5);
+      transition: width 0.3s;
+    }
+    &:hover {
+      &::before {
+        width: 100%;
+      }
+    }
+  }
+  &__img {
+  }
+  &__links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  &__link-title {
+    margin-bottom: 12px;
+    font-size: 14px;
+    line-height: 150%;
+    color: #513939;
+  }
+  &__link {
+    font-size: 14px;
+    line-height: 150%;
+    color: rgba(81, 57, 57, 0.5);
+    transition: color 0.3s;
+    &:hover {
+      color: rgba(81, 57, 57, 0.9);
+    }
+  }
+  &__link + &__link {
+    margin-top: 5px;
+  }
+}
+
+* {
+  scrollbar-width: thin; /* "auto" или "thin"  */
+  scrollbar-color: #cacaca #fff; /* плашка скролла и дорожка */
+}
+
 *::-webkit-scrollbar {
   width: 12px; /* ширина scrollbar */
 }
 *::-webkit-scrollbar-track {
-  background: #ffffff; /* цвет дорожки */
+  background: #fff; /* цвет дорожки */
 }
 *::-webkit-scrollbar-thumb {
   background-color: #cacaca; /* цвет плашки */
+  &:hover {
+    background-color: #a7a7a7;
+  }
   &:active {
-    background-color: #b4b4b4;
+    background-color: #797979;
   }
   border: 2px solid #ffffff; /* padding вокруг плашки */
 }

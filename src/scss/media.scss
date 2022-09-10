@@ -1,1 +1,56 @@
 // Здесь находятся все медиазапросы, вынесены в отдельный файл для удобства
+
+@media (max-width: 1200px) {
+  .bottom {
+    flex-direction: column;
+    margin-top: 80px;
+    position: relative;
+    &__main-title {
+      text-align: center;
+    }
+    &__main-text {
+      text-align: center;
+      margin-bottom: 70px;
+    }
+    &__main-title-addition {
+      padding-left: 0;
+      display: block;
+    }
+    &__btn {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%) translateY(50%);
+      z-index: 1;
+      max-width: 290px;
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
+
+@media (max-width: 690px) {
+  .bottom {
+    &__addition-img {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .insta {
+    &__title {
+      width: 44px;
+      padding: 0;
+      span {
+        display: none;
+      }
+    }
+  }
+
+  .top {
+    &__insta-block {
+      padding-left: 51px;
+    }
+  }
+}

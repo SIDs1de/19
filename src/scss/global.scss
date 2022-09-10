@@ -45,12 +45,9 @@
 }
 
 .wrapper {
-  &__header {
-    padding-top: 48px;
-  }
   &__steps {
     margin-bottom: 120px;
-    padding-top: 145px;
+    @include adaptive-value("padding-top", 145, 100, 1);
   }
   &__who {
     margin-bottom: 150px;
@@ -64,13 +61,18 @@
   &__learn {
     margin-bottom: 150px;
   }
+  &__questions {
+    margin-bottom: 230px;
+  }
 }
 
 .title {
   font-family: "Oranienbaum";
   margin: 0 auto;
   font-size: 64px;
+  @include adaptive-value("font-size", 64, 28, 1);
   line-height: calc(74 / 64);
+  @include adaptive-value("line-height", 74, 32, 1);
   text-align: center;
   letter-spacing: 0.02em;
   text-transform: uppercase;
@@ -92,6 +94,16 @@
   &:hover {
     &::before {
       width: 100%;
+    }
+  }
+  &--white {
+    background: linear-gradient(96.63deg, #ffffff 0%, #dfdfdf 31.52%, #a5a5a5 83.09%, #ffffff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    &::before {
+      background-color: rgba(#fff, 0.5);
     }
   }
 }

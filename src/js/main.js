@@ -109,6 +109,32 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', headerClasses);
   };
 
+  const questions = () => {
+    const questionsList = document.querySelector('.questions__list');
+    const questionsItems = document.querySelectorAll('.questions__item');
+
+    questionsList.addEventListener('click', (e) => {
+      if (e.target.classList.contains('questions__head')) {
+        questionsItems.forEach((item) => {
+          if (item !== e.target.parentElement) {
+            item.classList.remove('active');
+            item.querySelector('.questions__body').style.maxHeight = null;
+          }
+        });
+
+        if (!e.target.parentElement.classList.contains('active')) {
+          e.target.parentElement.classList.add('active');
+          e.target.nextSibling.style.maxHeight =
+            e.target.nextSibling.scrollHeight + 40 + 'px';
+        } else {
+          e.target.parentElement.classList.remove('active');
+          e.target.nextSibling.style.maxHeight = null;
+        }
+      }
+    });
+  };
+
   headerClasses();
   headerSlick();
+  questions();
 });
