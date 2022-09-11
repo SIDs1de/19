@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // direction: 'vertical',
 
     // Количество слайдов для показа
-    slidesPerView: 3,
+    slidesPerView: 1,
 
     enabled: false,
 
@@ -32,13 +32,13 @@ document.addEventListener('DOMContentLoaded', () => {
     },
 
     // Управление колесом мыши
-    mousewheel: {
-      // Чувствительность колеса мыши
-      sensitivity: 1,
-      // Класс объекта, на котором будет
-      // срабатывать прокрутка мышью
-      // events.target: '.image-slider'
-    },
+    // mousewheel: {
+    //   // Чувствительность колеса мыши
+    //   sensitivity: 1,
+    //   // Класс объекта, на котором будет
+    //   // срабатывать прокрутка мышью
+    //   // events.target: '.image-slider'
+    // },
 
     // Отключение функционала
     // при изменении элементов слайдера
@@ -63,8 +63,8 @@ document.addEventListener('DOMContentLoaded', () => {
       el: '.swiper-who__pagination',
       type: 'bullets',
       clickable: true,
-      bulletClass: 'page__bullet',
-      bulletActiveClass: 'page__bullet--active',
+      bulletClass: 'swiper-who__bullet',
+      bulletActiveClass: 'swiper-who__bullet--active',
     },
     // Скролл
     // scrollbar: {
@@ -90,6 +90,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //   resize: function () {},
     // },
+
+    breakpoints: {
+      1001: {
+        slidesPerView: 3,
+      },
+    },
   });
 
   const headerClasses = () => {
@@ -134,6 +140,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
+  const swiperActive = () => {
+    if (window.innerWidth <= 1000) {
+      mySlider.enabled = true;
+    } else {
+      mySlider.enabled = false;
+    }
+  };
+
+  window.addEventListener('resize', swiperActive);
+
+  swiperActive();
   headerClasses();
   headerSlick();
   questions();

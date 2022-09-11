@@ -46,23 +46,23 @@
 
 .wrapper {
   &__steps {
-    margin-bottom: 120px;
+    @include adaptive-value("margin-bottom", 120, 90, 1);
     @include adaptive-value("padding-top", 145, 100, 1);
   }
   &__who {
-    margin-bottom: 150px;
+    @include adaptive-value("margin-bottom", 150, 120, 1);
   }
   &__advantages {
-    margin-bottom: 150px;
+    @include adaptive-value("margin-bottom", 150, 120, 1);
   }
   &__comfortable {
-    margin-bottom: 150px;
+    @include adaptive-value("margin-bottom", 150, 120, 1);
   }
   &__learn {
-    margin-bottom: 150px;
+    @include adaptive-value("margin-bottom", 150, 120, 1);
   }
   &__questions {
-    margin-bottom: 230px;
+    @include adaptive-value("margin-bottom", 230, 200, 1);
   }
 }
 
@@ -83,7 +83,7 @@
   &::before {
     content: "";
     width: 0;
-    height: 4px;
+    @include adaptive-value('height', 4, 1, 1);
     background-color: rgba(#000, 0.5);
     position: absolute;
     bottom: -10px;
