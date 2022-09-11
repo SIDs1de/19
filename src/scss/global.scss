@@ -50,19 +50,19 @@
     @include adaptive-value("padding-top", 145, 100, 1);
   }
   &__who {
-    @include adaptive-value("margin-bottom", 150, 120, 1);
+    @include adaptive-value("margin-bottom", 150, 100, 1);
   }
   &__advantages {
-    @include adaptive-value("margin-bottom", 150, 120, 1);
+    @include adaptive-value("margin-bottom", 150, 100, 1);
   }
   &__comfortable {
-    @include adaptive-value("margin-bottom", 150, 120, 1);
+    @include adaptive-value("margin-bottom", 150, 100, 1);
   }
   &__learn {
-    @include adaptive-value("margin-bottom", 150, 120, 1);
+    @include adaptive-value("margin-bottom", 150, 100, 1);
   }
   &__questions {
-    @include adaptive-value("margin-bottom", 230, 200, 1);
+    @include adaptive-value("margin-bottom", 230, 180, 1);
   }
 }
 

@@ -2,6 +2,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const html = document.querySelector('html');
   const body = document.querySelector('body');
 
+  const titles = document.querySelectorAll('.title');
+
+  titles.forEach((title) => {
+    title.classList.add('wow', 'animate__animated', 'animate__zoomIn');
+  });
+
   const mySlider = new Swiper('.swiper-who', {
     // Свои классы
     wrapperClass: 'swiper-who__wrapper',
@@ -147,6 +153,8 @@ document.addEventListener('DOMContentLoaded', () => {
       mySlider.enabled = false;
     }
   };
+
+  new WOW().init();
 
   window.addEventListener('resize', swiperActive);
 
