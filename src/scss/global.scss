@@ -67,43 +67,45 @@
 }
 
 .title {
-  font-family: "Oranienbaum";
   margin: 0 auto;
-  font-size: 64px;
-  @include adaptive-value("font-size", 64, 28, 1);
-  line-height: calc(74 / 64);
-  @include adaptive-value("line-height", 74, 32, 1);
   text-align: center;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  color: #1b1a1a;
   max-width: 855px;
-  font-weight: 400;
-  position: relative;
-  &::before {
-    content: "";
-    width: 0;
-    @include adaptive-value("height", 4, 1, 1);
-    background-color: rgba(#000, 0.5);
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    transition: width 0.7s;
-  }
-  &:hover {
+  span {
+    position: relative;
+    font-family: "Oranienbaum";
+    @include adaptive-value("font-size", 64, 28, 1);
+    @include adaptive-value("line-height", 74, 32, 1);
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: #1b1a1a;
+    font-weight: 400;
     &::before {
-      width: 100%;
+      content: "";
+      width: 0;
+      @include adaptive-value("height", 4, 1, 1);
+      background-color: rgba(#000, 0.5);
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: width 0.7s;
+    }
+    &:hover {
+      &::before {
+        width: 100%;
+      }
     }
   }
   &--white {
-    background: linear-gradient(96.63deg, #ffffff 0%, #dfdfdf 31.52%, #a5a5a5 83.09%, #ffffff 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
-    &::before {
-      background-color: rgba(#fff, 0.5);
+    span {
+      background: linear-gradient(96.63deg, #ffffff 0%, #dfdfdf 31.52%, #a5a5a5 83.09%, #ffffff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+      &::before {
+        background-color: rgba(#fff, 0.5);
+      }
     }
   }
 }
