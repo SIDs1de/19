@@ -94,6 +94,12 @@
   }
 }
 
+@media (max-width: 700px) {
+  .input {
+    width: 100%;
+  }
+}
+
 @media (max-width: 690px) {
   .bottom {
     &__addition-img {
@@ -114,6 +120,51 @@
     &__links {
       align-items: center;
       text-align: center;
+    }
+  }
+  .popup {
+    &__list {
+      gap: 10px;
+    }
+  }
+  .input {
+    font-size: 16px;
+    line-height: 130%;
+    &::placeholder {
+      font-size: 16px;
+      line-height: 130%;
+    }
+  }
+}
+
+@media (max-width: 490px) {
+  .popup {
+    &__inner {
+      width: 95%;
+      &_tal {
+        h3 {
+          font-size: 16px;
+          line-height: 150%;
+          margin-bottom: 60px;
+        }
+        p {
+          font-size: 16px;
+          min-width: auto;
+        }
+        p + p {
+          margin-top: 15px;
+        }
+        .popup__body {
+          padding: 32px;
+        }
+      }
+    }
+  }
+  .input {
+    font-size: 16px;
+    width: 100%;
+    &::placeholder {
+      font-size: 16px;
     }
   }
 }
@@ -184,6 +235,46 @@
     }
     &__list {
       margin: -25px 0;
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  .popup {
+    &__title {
+      font-size: 21px;
+      line-height: 30px;
+      margin-bottom: 48px;
+      &--mini-margin {
+        margin-bottom: 20px;
+      }
+    }
+    &__input {
+      font-size: 16px;
+      line-height: 130%;
+      &::placeholder {
+        font-size: 16px;
+        line-height: 130%;
+      }
+    }
+    &__btn {
+      font-size: 16px;
+      line-height: 30px;
+      margin-bottom: 10px;
+    }
+    &__link {
+      font-size: 16px;
+      line-height: 30px;
+    }
+    &__inner {
+      border-radius: 32px;
+    }
+    &__par {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+    &__text {
+      font-size: 16px;
     }
   }
 }
