@@ -66,8 +66,8 @@ a {
     margin-bottom: 23px;
   }
   &.slick2 {
-    // padding-top: 115px;
-    @include adaptive-value("padding-top", 115, 80, 1);
+    // @include adaptive-value("padding-top", 115, 80, 1);
+    // padding-top: calc(48px + 67px);
     .header__top {
       position: fixed;
       top: -100px;

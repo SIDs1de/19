@@ -104,16 +104,30 @@ document.addEventListener('DOMContentLoaded', () => {
     },
   });
 
+  const headerTop = document.querySelector('.header__top');
+
   const headerClasses = () => {
     const header = document.querySelector('.header');
+    const style = header.currentStyle || window.getComputedStyle(header);
+    const style2 = headerTop.currentStyle || window.getComputedStyle(headerTop);
+    const pt = parseInt(style.paddingTop.slice(0, -2));
+    const pt2 = parseInt(style2.paddingTop.slice(0, -2));
+    const mb = parseInt(style2.marginBottom.slice(0, -2));
+    const hght = parseInt(style2.height.slice(0, -2));
     if (html.scrollTop > 790 && !header.classList.contains('slick')) {
       header.classList.add('slick');
     } else if (header.classList.contains('slick') && html.scrollTop <= 790) {
       header.classList.remove('slick');
     } else if (html.scrollTop > 400 && !header.classList.contains('slick2')) {
+      if (window.innerWidth <= 1200) {
+        header.style.paddingTop = pt + hght + 'px';
+      } else {
+        header.style.paddingTop = pt + mb + hght + 'px';
+      }
       header.classList.add('slick2');
     } else if (html.scrollTop <= 400 && header.classList.contains('slick2')) {
       header.classList.remove('slick2');
+      header.style.paddingTop = pt2 + 'px';
     }
   };
 

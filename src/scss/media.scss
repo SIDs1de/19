@@ -70,15 +70,6 @@
   }
 }
 
-@media (max-width: 800px) {
-  .steps {
-    &__block {
-      background: none !important;
-      border: 1px solid #ff7697;
-    }
-  }
-}
-
 @media (max-width: 940px) {
   .comfortable {
     &__inner {
@@ -90,6 +81,15 @@
     &__left {
       padding-right: 24px;
       margin-bottom: 25px;
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .steps {
+    &__block {
+      background: none !important;
+      border: 1px solid #ff7697;
     }
   }
 }
