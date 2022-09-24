@@ -203,6 +203,11 @@
           height: 170px !important;
         }
       }
+      &:hover {
+        &::before {
+          transform: translateX(-50%) translateY(50px);
+        }
+      }
     }
     &__item-text {
       max-width: 250px;
