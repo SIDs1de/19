@@ -85,6 +85,14 @@
   }
 }
 
+@media (min-width: 900px) {
+  html {
+    &.lock {
+      margin-right: 12px;
+    }
+  }
+}
+
 @media (max-width: 800px) {
   .steps {
     &__block {

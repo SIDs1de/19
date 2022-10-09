@@ -176,7 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const openPopup = () => {
     popupOpenBtns.forEach((btn) => {
       btn.addEventListener('click', (e) => {
-        body.classList.add('lock');
+        html.classList.add('lock');
         popups.forEach((popup) => {
           console.log(popup.dataset.pop);
           console.log(e.target.dataset.openPop);
@@ -189,7 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     popupBgs.forEach((bg) => {
       bg.addEventListener('click', (e) => {
-        body.classList.remove('lock');
+        html.classList.remove('lock');
         let pop = document.querySelector(
           `[data-pop="${e.target.dataset.close}"]`
         );
@@ -202,7 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
           `[data-pop="${e.target.dataset.close}"]`
         );
         pop.classList.remove('active');
-        body.classList.remove('lock');
+        html.classList.remove('lock');
       });
     });
   };
