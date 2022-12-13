@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
             item.querySelector('.questions__body').style.maxHeight = null;
           }
         });
-
+        
         if (!e.target.parentElement.classList.contains('active')) {
           e.target.parentElement.classList.add('active');
           e.target.nextSibling.style.maxHeight =
