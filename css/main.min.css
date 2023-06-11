@@ -282,11 +282,11 @@ textarea {
 	}
 }
 .wrapper__questions {
-	margin-bottom: 230px;
+	margin-bottom: 180px;
 }
 @media (max-width: 1200px) {
 	.wrapper__questions {
-		margin-bottom: calc(180px + 50 * ((100vw - 320px) / 880));
+		margin-bottom: calc(130px + 50 * ((100vw - 320px) / 880));
 	}
 }
 .title {
